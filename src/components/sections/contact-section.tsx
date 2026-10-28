@@ -6,6 +6,7 @@ import { InstagramIcon } from "@/components/ui/icons";
 import { portfolioData } from "@/data/portfolio";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 export function ContactSection() {
   const [formData, setFormData] = React.useState({
@@ -74,69 +75,71 @@ export function ContactSection() {
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
           {/* Left Column: Direct Contact Details & Info */}
-          <div className="lg:col-span-5 flex flex-col justify-between gap-8">
-            <div className="flex flex-col gap-4">
-              <div className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#5865f2] animate-pulse" />
-                <span className="text-xs font-mono font-bold tracking-wider text-[#8891f2] uppercase">
-                  Komunikasi & Kolaborasi
-                </span>
+          <ScrollReveal duration={900} className="lg:col-span-5">
+            <div className="flex flex-col justify-between gap-8 h-full">
+              <div className="flex flex-col gap-4">
+                <div className="flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#5865f2] animate-pulse" />
+                  <span className="text-xs font-mono font-bold tracking-wider text-[#8891f2] uppercase">
+                    Komunikasi & Kolaborasi
+                  </span>
+                </div>
+                <h2 className="text-3xl sm:text-4xl text-white font-extrabold tracking-tight font-display">
+                  MULAI PERCAKAPAN
+                </h2>
+                <p className="text-sm sm:text-base text-[#babcd9] leading-relaxed">
+                  Apakah Anda memiliki tawaran pekerjaan, kebutuhan pembuatan website, atau ingin berdiskusi seputar teknologi? Silakan kirimkan pesan melalui formulir atau kontak langsung di bawah ini.
+                </p>
+
+                {/* Direct Channels */}
+                <div className="flex flex-col gap-3 pt-4">
+                  <a
+                    href={`mailto:${portfolioData.profile.email}`}
+                    className="bg-[#23272a] border border-[#50555f]/40 hover:border-[#5865f2] rounded-xl p-4 flex items-center gap-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#5865f2]/10 group"
+                  >
+                    <div className="w-10 h-10 rounded-lg bg-[#2c2f33] flex items-center justify-center text-[#5865f2] group-hover:bg-[#5865f2] group-hover:text-white transition-colors">
+                      <Mail className="w-5 h-5" />
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-xs text-[#99aab5] font-semibold uppercase tracking-wider">
+                        Email Langsung
+                      </span>
+                      <span className="text-sm font-bold text-white">
+                        {portfolioData.profile.email}
+                      </span>
+                    </div>
+                  </a>
+
+                  <a
+                    href="https://www.instagram.com/ini.yannnn/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-[#23272a] border border-[#50555f]/40 hover:border-[#eb459e] rounded-xl p-4 flex items-center gap-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#eb459e]/10 group"
+                  >
+                    <div className="w-10 h-10 rounded-lg bg-[#2c2f33] flex items-center justify-center text-[#eb459e] group-hover:bg-[#eb459e] group-hover:text-white transition-colors">
+                      <InstagramIcon className="w-5 h-5" />
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-xs text-[#99aab5] font-semibold uppercase tracking-wider">
+                        Instagram
+                      </span>
+                      <span className="text-sm font-bold text-white">
+                        @ini.yannnn
+                      </span>
+                    </div>
+                  </a>
+                </div>
               </div>
-              <h2 className="text-3xl sm:text-4xl text-white font-extrabold tracking-tight font-display">
-                MULAI PERCAKAPAN
-              </h2>
-              <p className="text-sm sm:text-base text-[#babcd9] leading-relaxed">
-                Apakah Anda memiliki tawaran pekerjaan, kebutuhan pembuatan website, atau ingin berdiskusi seputar teknologi? Silakan kirimkan pesan melalui formulir atau kontak langsung di bawah ini.
-              </p>
 
-              {/* Direct Channels */}
-              <div className="flex flex-col gap-3 pt-4">
-                <a
-                  href={`mailto:${portfolioData.profile.email}`}
-                  className="bg-[#23272a] border border-[#50555f]/40 hover:border-[#5865f2] rounded-xl p-4 flex items-center gap-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#5865f2]/10 group"
-                >
-                  <div className="w-10 h-10 rounded-lg bg-[#2c2f33] flex items-center justify-center text-[#5865f2] group-hover:bg-[#5865f2] group-hover:text-white transition-colors">
-                    <Mail className="w-5 h-5" />
-                  </div>
-                  <div className="flex flex-col">
-                    <span className="text-xs text-[#99aab5] font-semibold uppercase tracking-wider">
-                      Email Langsung
-                    </span>
-                    <span className="text-sm font-bold text-white">
-                      {portfolioData.profile.email}
-                    </span>
-                  </div>
-                </a>
-
-                <a
-                  href="https://www.instagram.com/ini.yannnn/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-[#23272a] border border-[#50555f]/40 hover:border-[#eb459e] rounded-xl p-4 flex items-center gap-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#eb459e]/10 group"
-                >
-                  <div className="w-10 h-10 rounded-lg bg-[#2c2f33] flex items-center justify-center text-[#eb459e] group-hover:bg-[#eb459e] group-hover:text-white transition-colors">
-                    <InstagramIcon className="w-5 h-5" />
-                  </div>
-                  <div className="flex flex-col">
-                    <span className="text-xs text-[#99aab5] font-semibold uppercase tracking-wider">
-                      Instagram
-                    </span>
-                    <span className="text-sm font-bold text-white">
-                      @ini.yannnn
-                    </span>
-                  </div>
-                </a>
+              {/* Note box */}
+              <div className="bg-[#23272a]/60 border border-[#50555f]/30 rounded-xl p-4 text-xs text-[#99aab5] leading-relaxed">
+                Pesan yang Anda kirimkan melalui formulir ini akan langsung diteruskan ke kotak masuk email pemilik portofolio secara privat dan aman.
               </div>
             </div>
-
-            {/* Note box */}
-            <div className="bg-[#23272a]/60 border border-[#50555f]/30 rounded-xl p-4 text-xs text-[#99aab5] leading-relaxed">
-              Pesan yang Anda kirimkan melalui formulir ini akan langsung diteruskan ke kotak masuk email pemilik portofolio secara privat dan aman.
-            </div>
-          </div>
+          </ScrollReveal>
 
           {/* Right Column: Contact Form */}
-          <div className="lg:col-span-7">
+          <ScrollReveal delay={150} duration={950} className="lg:col-span-7">
             <div className="bg-[#23272a] border border-[#50555f]/40 rounded-[24px] p-6 sm:p-8 hover:border-[#5865f2]/40 transition-colors">
               <h3 className="text-xl font-bold text-white font-display mb-6">
                 Formulir Kirim Pesan
@@ -293,7 +296,7 @@ export function ContactSection() {
                 </div>
               </form>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>
