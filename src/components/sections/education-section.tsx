@@ -1,5 +1,6 @@
 import * as React from "react";
-import { GraduationCap, BookOpen, Award } from "lucide-react";
+import Image from "next/image";
+import { BookOpen, Award } from "lucide-react";
 import { portfolioData } from "@/data/portfolio";
 import { Badge } from "@/components/ui/badge";
 
@@ -25,12 +26,18 @@ export function EducationSection() {
           {education.map((item, index) => (
             <div
               key={index}
-              className="bg-[#23272a] border border-[#50555f]/40 rounded-[20px] p-6 sm:p-8 flex flex-col justify-between gap-6 hover:border-[#5865f2]/50 transition-colors"
+              className="bg-[#23272a] border border-[#50555f]/40 rounded-[20px] p-6 sm:p-8 flex flex-col justify-between gap-6 hover:border-[#5865f2]/50 transition-colors group"
             >
               <div className="flex flex-col gap-4">
                 <div className="flex items-start justify-between gap-4">
-                  <div className="w-12 h-12 rounded-2xl bg-[#2c2f33] border border-[#50555f]/40 flex items-center justify-center text-[#5865f2] shrink-0">
-                    <GraduationCap className="w-6 h-6" />
+                  <div className="w-14 h-14 rounded-2xl bg-white/95 p-1.5 border border-[#50555f]/40 flex items-center justify-center shrink-0 shadow-md shadow-black/30 group-hover:scale-105 transition-transform duration-300">
+                    <Image
+                      src="/images/gunadarma-logo.svg"
+                      alt="Logo Resmi Universitas Gunadarma"
+                      width={48}
+                      height={48}
+                      className="w-full h-full object-contain"
+                    />
                   </div>
                   <Badge variant="success">{item.status}</Badge>
                 </div>
@@ -40,7 +47,7 @@ export function EducationSection() {
                     {item.institution}
                   </h3>
                   <p className="text-base text-[#8891f2] font-semibold">
-                    {item.degree} — {item.field}
+                    {item.degree} • {item.field}
                   </p>
                 </div>
 

@@ -1,7 +1,25 @@
 import * as React from "react";
+import Image from "next/image";
 import { Code, Database, Palette, Wrench } from "lucide-react";
 import { portfolioData } from "@/data/portfolio";
 import { Badge } from "@/components/ui/badge";
+
+const techIconMap: Record<string, string> = {
+  Laravel: "/icons/tech/laravel.svg",
+  PHP: "/icons/tech/php.svg",
+  Bootstrap: "/icons/tech/bootstrap.svg",
+  "Web Development": "/icons/tech/html5.svg",
+  "HTML/CSS": "/icons/tech/html5.svg",
+  JavaScript: "/icons/tech/javascript.svg",
+  MySQL: "/icons/tech/mysql.svg",
+  "Relational Database Design": "/icons/tech/sql.svg",
+  "SQL Queries": "/icons/tech/sql.svg",
+  Canva: "/icons/tech/canva.svg",
+  CapCut: "/icons/tech/capcut.svg",
+  "Microsoft Word": "/icons/tech/word.svg",
+  "Microsoft Excel": "/icons/tech/excel.svg",
+  "Microsoft PowerPoint": "/icons/tech/powerpoint.svg",
+};
 
 export function SkillsSection() {
   const { skills } = portfolioData;
@@ -46,14 +64,46 @@ export function SkillsSection() {
               </div>
 
               <div className="flex flex-wrap gap-2.5">
-                {category.skills.map((skill) => (
-                  <span
-                    key={skill}
-                    className="inline-flex items-center px-3.5 py-2 rounded-xl bg-[#2c2f33] border border-[#50555f]/40 text-sm font-medium text-white hover:border-[#5865f2] hover:text-[#8891f2] transition-colors"
-                  >
-                    {skill}
-                  </span>
-                ))}
+                {category.skills.map((skill) => {
+                  const iconSrc = techIconMap[skill];
+                  return (
+                    <span
+                      key={skill}
+                      className="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-[#2c2f33] border border-[#50555f]/40 text-sm font-medium text-white hover:border-[#5865f2] hover:bg-[#2c2f33]/80 transition-all duration-200 group"
+                    >
+                      {skill === "HTML/CSS" ? (
+                        <span className="flex items-center gap-1 shrink-0">
+                          <Image
+                            src="/icons/tech/html5.svg"
+                            alt=""
+                            aria-hidden="true"
+                            width={16}
+                            height={16}
+                            className="w-4 h-4 object-contain transition-transform duration-200 group-hover:scale-110"
+                          />
+                          <Image
+                            src="/icons/tech/css3.svg"
+                            alt=""
+                            aria-hidden="true"
+                            width={16}
+                            height={16}
+                            className="w-4 h-4 object-contain transition-transform duration-200 group-hover:scale-110"
+                          />
+                        </span>
+                      ) : iconSrc ? (
+                        <Image
+                          src={iconSrc}
+                          alt=""
+                          aria-hidden="true"
+                          width={18}
+                          height={18}
+                          className="w-4.5 h-4.5 object-contain shrink-0 transition-transform duration-200 group-hover:scale-110"
+                        />
+                      ) : null}
+                      <span>{skill}</span>
+                    </span>
+                  );
+                })}
               </div>
             </div>
           ))}
