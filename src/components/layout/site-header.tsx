@@ -38,7 +38,7 @@ export function SiteHeader() {
   const closeMenu = () => setIsMobileMenuOpen(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full backdrop-blur-md bg-[#0e0f2d]/80 border-b border-white/10 transition-colors">
+    <header className="sticky top-0 z-50 w-full backdrop-blur-xl bg-[#0e0f2d]/85 border-b border-[#50555f]/30 transition-all duration-300">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 h-18 flex items-center justify-between">
         {/* Logo / Name */}
         <Link
@@ -46,11 +46,11 @@ export function SiteHeader() {
           className="flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blurple rounded-lg"
           onClick={closeMenu}
         >
-          <div className="w-10 h-10 rounded-xl bg-[#5865f2] flex items-center justify-center text-white font-extrabold text-lg tracking-tight group-hover:bg-[#3442d9] transition-colors">
+          <div className="w-10 h-10 rounded-xl bg-[#5865f2] flex items-center justify-center text-white font-extrabold text-lg tracking-tight group-hover:bg-[#3442d9] group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-[#5865f2]/25 transition-all duration-300">
             RH
           </div>
           <div className="flex flex-col">
-            <span className="font-extrabold text-white text-base tracking-tight font-display">
+            <span className="font-extrabold text-white text-base tracking-tight font-display group-hover:text-[#8891f2] transition-colors">
               Rian Hartokusumo
             </span>
             <span className="text-xs text-[#babcd9] font-medium hidden sm:inline">
@@ -61,7 +61,7 @@ export function SiteHeader() {
 
         {/* Desktop Navigation */}
         <nav
-          className="hidden md:flex items-center gap-1 lg:gap-2"
+          className="hidden md:flex items-center p-1 rounded-2xl bg-[#23272a]/60 border border-[#50555f]/30 backdrop-blur-md"
           aria-label="Navigasi Utama"
         >
           {navLinks.map((link) => {
@@ -70,9 +70,9 @@ export function SiteHeader() {
               <a
                 key={link.href}
                 href={link.href}
-                className={`px-3.5 py-2 rounded-lg text-sm font-medium transition-all ${
+                className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold tracking-wide transition-all duration-200 ${
                   isActive
-                    ? "text-white bg-white/10"
+                    ? "text-white bg-[#5865f2] shadow-sm shadow-[#5865f2]/40"
                     : "text-[#babcd9] hover:text-white hover:bg-white/5"
                 }`}
               >
@@ -85,9 +85,13 @@ export function SiteHeader() {
         {/* Header Action Button (Desktop) */}
         <div className="hidden md:flex items-center gap-3">
           <a href="#kontak">
-            <Button variant="header" size="sm" className="font-semibold px-4">
+            <Button
+              variant="header"
+              size="sm"
+              className="font-semibold px-4 active:scale-[0.97] transition-all duration-150 hover:shadow-lg hover:shadow-[#5865f2]/20"
+            >
               Kirim Pesan
-              <ArrowUpRight className="w-4 h-4" />
+              <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </Button>
           </a>
         </div>

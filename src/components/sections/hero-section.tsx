@@ -13,18 +13,24 @@ export function HeroSection() {
       id="tentang"
       className="relative pt-12 md:pt-20 pb-16 md:pb-24 overflow-hidden"
     >
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
+      {/* Ambient background glows */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-[#5865f2]/15 rounded-full blur-[140px] pointer-events-none animate-pulse-slow" />
+      <div className="absolute top-1/2 -left-32 w-[350px] h-[350px] bg-[#57f287]/10 rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Left Column: Heading & Intro */}
           <div className="lg:col-span-7 flex flex-col gap-6">
-            <div className="flex items-center gap-2">
-              <Badge variant="blurple">PORTFOLIO RESMI</Badge>
-              <Badge variant="success">LULUSAN S1 SISTEM INFORMASI</Badge>
+            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#23272a]/90 border border-[#50555f]/40 w-fit backdrop-blur-md shadow-sm">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#57f287] animate-pulse shadow-sm shadow-[#57f287]/80" />
+              <span className="text-xs font-semibold text-white tracking-wide">
+                Lulusan S1 Sistem Informasi • Web Developer
+              </span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl text-white font-extrabold leading-[1.05] tracking-tight font-display">
               SIAP MEMBANGUN <br className="hidden sm:inline" />
-              SOLUSI WEB <br className="hidden sm:inline" />
+              <span className="text-[#5865f2]">SOLUSI WEB</span> <br className="hidden sm:inline" />
               YANG HANDAL
             </h1>
 
@@ -40,29 +46,41 @@ export function HeroSection() {
             {/* CTA Cluster */}
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <a href="#kontak">
-                <Button variant="primary" size="lg" className="font-semibold shadow-lg shadow-[#5865f2]/20">
+                <Button
+                  variant="primary"
+                  size="lg"
+                  className="font-semibold shadow-lg shadow-[#5865f2]/25 active:scale-[0.98] transition-all duration-200"
+                >
                   <Mail className="w-5 h-5" />
                   {profile.ctaTextPrimary}
                 </Button>
               </a>
 
               <a href="#proyek">
-                <Button variant="secondary" size="lg" className="font-semibold">
+                <Button
+                  variant="secondary"
+                  size="lg"
+                  className="font-semibold active:scale-[0.98] transition-all duration-200"
+                >
                   {profile.ctaTextSecondary}
                   <ArrowDown className="w-4 h-4" />
                 </Button>
               </a>
             </div>
 
-            {/* Quick Fact Badges */}
-            <div className="pt-6 border-t border-[#50555f]/30 flex flex-wrap gap-6 text-xs text-[#babcd9]">
-              <div className="flex items-center gap-2">
-                <GraduationCap className="w-4 h-4 text-[#5865f2]" />
-                <span>Universitas Gunadarma</span>
+            {/* Interactive Micro Stats Strip */}
+            <div className="grid grid-cols-3 gap-3 pt-6 border-t border-[#50555f]/30 max-w-xl">
+              <div className="bg-[#23272a]/70 border border-[#50555f]/30 rounded-xl p-3.5 flex flex-col hover:border-[#5865f2]/40 transition-colors">
+                <span className="text-2xl font-black text-white font-display">9+</span>
+                <span className="text-[11px] text-[#99aab5] font-medium mt-0.5">Sertifikat Resmi</span>
               </div>
-              <div className="flex items-center gap-2">
-                <Code2 className="w-4 h-4 text-[#57f287]" />
-                <span>Laravel • PHP • MySQL • Bootstrap</span>
+              <div className="bg-[#23272a]/70 border border-[#50555f]/30 rounded-xl p-3.5 flex flex-col hover:border-[#57f287]/40 transition-colors">
+                <span className="text-2xl font-black text-[#57f287] font-display">2+</span>
+                <span className="text-[11px] text-[#99aab5] font-medium mt-0.5">Platform E-Commerce</span>
+              </div>
+              <div className="bg-[#23272a]/70 border border-[#50555f]/30 rounded-xl p-3.5 flex flex-col hover:border-[#8891f2]/40 transition-colors">
+                <span className="text-2xl font-black text-[#8891f2] font-display">S1</span>
+                <span className="text-[11px] text-[#99aab5] font-medium mt-0.5">Univ. Gunadarma</span>
               </div>
             </div>
           </div>
@@ -123,6 +141,22 @@ export function HeroSection() {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Scroll Cue */}
+        <div className="flex justify-center pt-12 sm:pt-16">
+          <a
+            href="#pendidikan"
+            className="flex flex-col items-center gap-2 text-xs text-[#99aab5] hover:text-white transition-colors group"
+            aria-label="Gulir ke bagian pendidikan"
+          >
+            <span className="text-[11px] tracking-wider uppercase font-semibold text-[#8891f2]/80 group-hover:text-white transition-colors">
+              Jelajahi Profil
+            </span>
+            <div className="w-5 h-8 rounded-full border-2 border-[#50555f]/60 flex items-start justify-center p-1 group-hover:border-[#5865f2] transition-colors">
+              <span className="w-1 h-2 bg-[#5865f2] rounded-full animate-scroll-glide" />
+            </div>
+          </a>
         </div>
       </div>
     </section>

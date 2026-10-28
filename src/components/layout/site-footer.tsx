@@ -8,13 +8,16 @@ export function SiteFooter() {
   const currentYear = 2026;
 
   return (
-    <footer className="w-full bg-[#23272a] border-t border-[#50555f]/40 pt-16 pb-12 mt-24">
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
+    <footer className="w-full bg-[#1e2124] border-t border-[#50555f]/40 pt-16 pb-12 mt-20 relative overflow-hidden">
+      {/* Footer subtle backlight */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-32 bg-[#5865f2]/10 blur-[100px] pointer-events-none" />
+
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8 mb-12">
           {/* Column 1: Brand & Bio */}
           <div className="md:col-span-2 flex flex-col gap-4">
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-xl bg-[#5865f2] flex items-center justify-center text-white font-extrabold text-base tracking-tight">
+              <div className="w-9 h-9 rounded-xl bg-[#5865f2] flex items-center justify-center text-white font-extrabold text-base tracking-tight shadow-md shadow-[#5865f2]/20">
                 RH
               </div>
               <span className="font-extrabold text-white text-lg tracking-tight font-display">
@@ -24,7 +27,7 @@ export function SiteFooter() {
             <p className="text-sm text-[#babcd9] max-w-md leading-relaxed">
               {portfolioData.profile.shortBio}
             </p>
-            <div className="flex items-center gap-2 mt-2">
+            <div className="flex items-center gap-2 mt-2 bg-[#2c2f33]/60 px-3 py-1.5 rounded-full w-fit border border-[#50555f]/30">
               <span className="w-2.5 h-2.5 rounded-full bg-[#57f287] inline-block animate-pulse" />
               <span className="text-xs text-[#57f287] font-semibold tracking-wide">
                 Tersedia untuk peluang kerja & proyek web

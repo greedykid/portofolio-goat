@@ -31,14 +31,20 @@ export function CertificatesSection() {
   }, [certificates, activeCategory]);
 
   return (
-    <section id="sertifikat" className="py-16 md:py-20 border-t border-[#50555f]/30">
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
+    <section id="sertifikat" className="py-20 md:py-28 relative overflow-hidden">
+      {/* Ambient background glow */}
+      <div className="absolute top-1/4 -left-40 w-80 h-80 bg-[#5865f2]/10 rounded-full blur-[140px] pointer-events-none" />
+
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 relative z-10">
         {/* Section Header */}
-        <div className="flex flex-col gap-3 mb-8">
+        <div className="flex flex-col gap-3 mb-10">
           <div className="flex items-center gap-2">
-            <Badge variant="blurple">VERIFIKASI KOMPETENSI</Badge>
-            <span className="text-xs text-[#8891f2] font-mono font-medium">
-              ({certificates.length} Sertifikat Resmi)
+            <span className="w-2.5 h-2.5 rounded-full bg-[#5865f2] animate-pulse" />
+            <span className="text-xs font-mono font-bold tracking-wider text-[#8891f2] uppercase">
+              Kredensial & Lisensi Resmi
+            </span>
+            <span className="text-xs text-[#99aab5] font-mono font-medium ml-1">
+              ({certificates.length} Berkas Terverifikasi)
             </span>
           </div>
           <h2 className="text-3xl sm:text-4xl text-white font-extrabold tracking-tight font-display">
@@ -63,9 +69,9 @@ export function CertificatesSection() {
                 <button
                   key={cat}
                   onClick={() => setActiveCategory(cat)}
-                  className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5865f2] ${
+                  className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all duration-200 active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5865f2] ${
                     isActive
-                      ? "bg-[#5865f2] text-white shadow-md shadow-[#5865f2]/20 border border-[#5865f2]"
+                      ? "bg-[#5865f2] text-white shadow-lg shadow-[#5865f2]/25 border border-[#5865f2]"
                       : "bg-[#23272a] text-[#babcd9] hover:text-white hover:bg-[#2c2f33] border border-[#50555f]/40"
                   }`}
                   aria-pressed={isActive}
@@ -92,7 +98,7 @@ export function CertificatesSection() {
             {filteredCertificates.map((cert) => (
               <div
                 key={cert.id}
-                className="bg-[#23272a] border border-[#50555f]/40 hover:border-[#5865f2]/60 rounded-[20px] p-6 flex flex-col justify-between gap-5 transition-all duration-200 group hover:shadow-xl hover:shadow-[#5865f2]/5"
+                className="bg-[#23272a] border border-[#50555f]/40 hover:border-[#5865f2]/60 rounded-[22px] p-6 flex flex-col justify-between gap-5 transition-all duration-300 hover:-translate-y-1.5 group hover:shadow-2xl hover:shadow-[#5865f2]/10"
               >
                 {/* Card Top */}
                 <div className="flex flex-col gap-4">

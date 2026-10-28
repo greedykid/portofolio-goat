@@ -52,7 +52,45 @@ body {
     transform: translateY(0px);
   }
   50% {
-    transform: translateY(-5px);
+    transform: translateY(-6px);
+  }
+}
+
+/* Ambient glow breathing */
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 0.15;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.28;
+    transform: scale(1.05);
+  }
+}
+
+/* Smooth scroll indicator glide */
+@keyframes scroll-glide {
+  0% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+  60% {
+    transform: translateY(8px);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+/* Subtle gradient shimmer */
+@keyframes shimmer-sweep {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
   }
 }
 
@@ -60,9 +98,39 @@ body {
   animation: float-gentle 4s ease-in-out infinite;
 }
 
+.animate-pulse-slow {
+  animation: pulse-slow 8s ease-in-out infinite;
+}
+
+.animate-scroll-glide {
+  animation: scroll-glide 2.4s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+.animate-shimmer {
+  background-size: 200% 100%;
+  animation: shimmer-sweep 3s ease-in-out infinite;
+}
+
+/* Tactile card & element lift utility */
+.card-hover-lift {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease;
+}
+
+.card-hover-lift:hover {
+  transform: translateY(-4px);
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .animate-float-gentle {
-    animation: none;
+  .animate-float-gentle,
+  .animate-pulse-slow,
+  .animate-scroll-glide,
+  .animate-shimmer {
+    animation: none !important;
+  }
+  .card-hover-lift:hover {
+    transform: none !important;
   }
 }
 

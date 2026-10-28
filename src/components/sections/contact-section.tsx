@@ -67,14 +67,20 @@ export function ContactSection() {
   };
 
   return (
-    <section id="kontak" className="py-16 md:py-20 border-t border-[#50555f]/30">
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
+    <section id="kontak" className="py-20 md:py-28 relative overflow-hidden">
+      {/* Ambient background glow */}
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#5865f2]/10 rounded-full blur-[160px] pointer-events-none" />
+
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
           {/* Left Column: Direct Contact Details & Info */}
           <div className="lg:col-span-5 flex flex-col justify-between gap-8">
             <div className="flex flex-col gap-4">
               <div className="flex items-center gap-2">
-                <Badge variant="blurple">HUBUNGI SAYA</Badge>
+                <span className="w-2.5 h-2.5 rounded-full bg-[#5865f2] animate-pulse" />
+                <span className="text-xs font-mono font-bold tracking-wider text-[#8891f2] uppercase">
+                  Komunikasi & Kolaborasi
+                </span>
               </div>
               <h2 className="text-3xl sm:text-4xl text-white font-extrabold tracking-tight font-display">
                 MULAI PERCAKAPAN
@@ -87,7 +93,7 @@ export function ContactSection() {
               <div className="flex flex-col gap-3 pt-4">
                 <a
                   href={`mailto:${portfolioData.profile.email}`}
-                  className="bg-[#23272a] border border-[#50555f]/40 hover:border-[#5865f2] rounded-xl p-4 flex items-center gap-4 transition-colors group"
+                  className="bg-[#23272a] border border-[#50555f]/40 hover:border-[#5865f2] rounded-xl p-4 flex items-center gap-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#5865f2]/10 group"
                 >
                   <div className="w-10 h-10 rounded-lg bg-[#2c2f33] flex items-center justify-center text-[#5865f2] group-hover:bg-[#5865f2] group-hover:text-white transition-colors">
                     <Mail className="w-5 h-5" />
@@ -106,7 +112,7 @@ export function ContactSection() {
                   href="https://www.instagram.com/ini.yannnn/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-[#23272a] border border-[#50555f]/40 hover:border-[#eb459e] rounded-xl p-4 flex items-center gap-4 transition-colors group"
+                  className="bg-[#23272a] border border-[#50555f]/40 hover:border-[#eb459e] rounded-xl p-4 flex items-center gap-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#eb459e]/10 group"
                 >
                   <div className="w-10 h-10 rounded-lg bg-[#2c2f33] flex items-center justify-center text-[#eb459e] group-hover:bg-[#eb459e] group-hover:text-white transition-colors">
                     <InstagramIcon className="w-5 h-5" />
@@ -131,7 +137,7 @@ export function ContactSection() {
 
           {/* Right Column: Contact Form */}
           <div className="lg:col-span-7">
-            <div className="bg-[#23272a] border border-[#50555f]/40 rounded-[24px] p-6 sm:p-8">
+            <div className="bg-[#23272a] border border-[#50555f]/40 rounded-[24px] p-6 sm:p-8 hover:border-[#5865f2]/40 transition-colors">
               <h3 className="text-xl font-bold text-white font-display mb-6">
                 Formulir Kirim Pesan
               </h3>
@@ -191,7 +197,7 @@ export function ContactSection() {
                       value={formData.name}
                       onChange={handleChange}
                       disabled={status === "loading"}
-                      className="w-full bg-[#2c2f33] border border-[#50555f]/50 focus:border-[#5865f2] focus:ring-2 focus:ring-[#5865f2]/20 rounded-xl px-4 py-3 text-sm text-white placeholder-[#99aab5] outline-none transition-all disabled:opacity-50"
+                      className="w-full bg-[#2c2f33] border border-[#50555f]/50 focus:border-[#5865f2] focus:ring-4 focus:ring-[#5865f2]/20 rounded-xl px-4 py-3 text-sm text-white placeholder-[#99aab5] outline-none transition-all duration-200 disabled:opacity-50"
                     />
                   </div>
 
@@ -212,7 +218,7 @@ export function ContactSection() {
                       value={formData.email}
                       onChange={handleChange}
                       disabled={status === "loading"}
-                      className="w-full bg-[#2c2f33] border border-[#50555f]/50 focus:border-[#5865f2] focus:ring-2 focus:ring-[#5865f2]/20 rounded-xl px-4 py-3 text-sm text-white placeholder-[#99aab5] outline-none transition-all disabled:opacity-50"
+                      className="w-full bg-[#2c2f33] border border-[#50555f]/50 focus:border-[#5865f2] focus:ring-4 focus:ring-[#5865f2]/20 rounded-xl px-4 py-3 text-sm text-white placeholder-[#99aab5] outline-none transition-all duration-200 disabled:opacity-50"
                     />
                   </div>
                 </div>
@@ -236,7 +242,7 @@ export function ContactSection() {
                     value={formData.subject}
                     onChange={handleChange}
                     disabled={status === "loading"}
-                    className="w-full bg-[#2c2f33] border border-[#50555f]/50 focus:border-[#5865f2] focus:ring-2 focus:ring-[#5865f2]/20 rounded-xl px-4 py-3 text-sm text-white placeholder-[#99aab5] outline-none transition-all disabled:opacity-50"
+                    className="w-full bg-[#2c2f33] border border-[#50555f]/50 focus:border-[#5865f2] focus:ring-4 focus:ring-[#5865f2]/20 rounded-xl px-4 py-3 text-sm text-white placeholder-[#99aab5] outline-none transition-all duration-200 disabled:opacity-50"
                   />
                 </div>
 
@@ -259,7 +265,7 @@ export function ContactSection() {
                     value={formData.message}
                     onChange={handleChange}
                     disabled={status === "loading"}
-                    className="w-full bg-[#2c2f33] border border-[#50555f]/50 focus:border-[#5865f2] focus:ring-2 focus:ring-[#5865f2]/20 rounded-xl p-4 text-sm text-white placeholder-[#99aab5] outline-none transition-all resize-none disabled:opacity-50"
+                    className="w-full bg-[#2c2f33] border border-[#50555f]/50 focus:border-[#5865f2] focus:ring-4 focus:ring-[#5865f2]/20 rounded-xl p-4 text-sm text-white placeholder-[#99aab5] outline-none transition-all duration-200 resize-none disabled:opacity-50"
                   />
                 </div>
 
@@ -270,7 +276,7 @@ export function ContactSection() {
                     variant="primary"
                     size="lg"
                     disabled={status === "loading"}
-                    className="w-full sm:w-auto font-semibold px-8"
+                    className="w-full sm:w-auto font-semibold px-8 active:scale-[0.98] transition-all duration-200 shadow-lg shadow-[#5865f2]/20 hover:shadow-xl hover:shadow-[#5865f2]/30"
                   >
                     {status === "loading" ? (
                       <>
