@@ -3,6 +3,7 @@ import { Nunito, Inter } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
+import { SmoothScroll } from "@/components/ui/smooth-scroll";
 
 const nunito = Nunito({
   variable: "--font-display",
@@ -39,7 +40,7 @@ export const metadata: Metadata = {
     url: "https://rianhartokusumo.vercel.app",
     title: "Rian Hartokusumo | S1 Sistem Informasi & Web Developer",
     description:
-      "Website portofolio resmi Rian Hartokusumo — Pengembang web dengan spesialisasi Laravel, PHP, dan MySQL.",
+      "Website portofolio resmi Rian Hartokusumo: Pengembang web dengan spesialisasi Laravel, PHP, dan MySQL.",
     siteName: "Portofolio Rian Hartokusumo",
   },
 };
@@ -52,6 +53,7 @@ export default function RootLayout({
   return (
     <html lang="id" className={`${nunito.variable} ${inter.variable} scroll-smooth`}>
       <body className="min-h-screen bg-[#0e0f2d] text-[#babcd9] font-sans antialiased flex flex-col selection:bg-[#5865f2] selection:text-white">
+        <SmoothScroll />
         <SiteHeader />
         <main className="flex-1">{children}</main>
         <SiteFooter />
