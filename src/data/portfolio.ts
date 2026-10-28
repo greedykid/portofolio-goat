@@ -12,6 +12,7 @@ export const portfolioData: PortfolioData = {
     email: "rianharto1945@gmail.com",
     ctaTextPrimary: "Hubungi Saya",
     ctaTextSecondary: "Lihat Proyek",
+    avatarUrl: "/images/profile-rian.jpg",
   },
   education: [
     {

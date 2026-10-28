@@ -1,5 +1,6 @@
 import * as React from "react";
-import { ArrowDown, Mail, Code2, GraduationCap, CheckCircle2 } from "lucide-react";
+import Image from "next/image";
+import { ArrowDown, Mail, Code2, GraduationCap } from "lucide-react";
 import { portfolioData } from "@/data/portfolio";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -66,64 +67,59 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Right Column: Visual Feature Stage Card (Discord Feature Stage Style) */}
+          {/* Right Column: Visual Profile Stage Card */}
           <div className="lg:col-span-5">
-            <div className="bg-[#23272a] border border-[#50555f]/40 rounded-[24px] p-6 sm:p-8 flex flex-col gap-6 relative overflow-hidden">
-              {/* Background ambient gradient accent */}
-              <div className="absolute -top-24 -right-24 w-48 h-48 bg-[#5865f2]/20 rounded-full blur-3xl pointer-events-none" />
+            <div className="bg-[#23272a] border border-[#50555f]/40 rounded-[24px] p-4 sm:p-5 flex flex-col gap-4 relative overflow-hidden transition-all duration-300 hover:border-[#5865f2]/50 hover:shadow-2xl hover:shadow-[#5865f2]/10 group">
+              {/* Background ambient gradient accents */}
+              <div className="absolute -top-20 -right-20 w-48 h-48 bg-[#5865f2]/20 rounded-full blur-3xl pointer-events-none group-hover:bg-[#5865f2]/30 transition-colors duration-500" />
+              <div className="absolute -bottom-16 -left-16 w-36 h-36 bg-[#57f287]/10 rounded-full blur-3xl pointer-events-none" />
 
-              <div className="flex items-center justify-between border-b border-[#50555f]/40 pb-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-2xl bg-[#5865f2] flex items-center justify-center text-white font-extrabold text-xl tracking-tight">
-                    RH
-                  </div>
-                  <div>
-                    <h3 className="text-white font-bold text-base font-display">
-                      {profile.name}
-                    </h3>
-                    <p className="text-xs text-[#babcd9]">
-                      Web Developer / Sistem Informasi
-                    </p>
+              {/* Photo Stage Frame */}
+              <div className="relative aspect-[3/4] w-full rounded-2xl overflow-hidden bg-[#2c2f33] border border-[#50555f]/30">
+                <Image
+                  src={profile.avatarUrl || "/images/profile-rian.jpg"}
+                  alt="Foto profil Rian Hartokusumo, Web Developer"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 42vw, 460px"
+                  priority
+                  fetchPriority="high"
+                  className="object-cover object-center transition-transform duration-500 ease-out group-hover:scale-[1.025]"
+                />
+
+                {/* Floating Status Badge (Top Right) */}
+                <div className="absolute top-3 right-3 animate-float-gentle">
+                  <div className="bg-[#23272a]/85 backdrop-blur-md border border-[#50555f]/50 text-white text-xs px-3 py-1.5 rounded-full flex items-center gap-2 shadow-lg shadow-black/40">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#57f287] animate-pulse shadow-sm shadow-[#57f287]/80" />
+                    <span className="font-medium tracking-wide">Tersedia untuk Kerja</span>
                   </div>
                 </div>
-                <span className="w-3 h-3 rounded-full bg-[#57f287] shadow-sm shadow-[#57f287]/50" />
+
+                {/* Technical Specialization Pill (Bottom Overlay) */}
+                <div className="absolute bottom-3 left-3 right-3">
+                  <div className="bg-[#23272a]/90 backdrop-blur-md border border-[#50555f]/40 px-3.5 py-2 rounded-xl flex items-center justify-between text-xs text-[#babcd9] shadow-lg shadow-black/40">
+                    <div className="flex items-center gap-2">
+                      <Code2 className="w-4 h-4 text-[#57f287] shrink-0" />
+                      <span className="font-medium text-white">Laravel • PHP • MySQL</span>
+                    </div>
+                    <span className="text-[11px] text-[#99aab5] font-mono">Full-Stack</span>
+                  </div>
+                </div>
               </div>
 
-              {/* Status Box */}
-              <div className="bg-[#2c2f33] rounded-xl p-4 border border-[#50555f]/30 flex flex-col gap-2">
-                <span className="text-xs text-[#99aab5] uppercase font-bold tracking-wider">
-                  Fokus Pengembangan Saat Ini
-                </span>
-                <p className="text-sm text-white font-medium">
-                  Pengembangan aplikasi web berbasis framework Laravel & perancangan basis data relasional.
-                </p>
-              </div>
-
-              {/* Key Competency List */}
-              <div className="flex flex-col gap-2.5">
-                <span className="text-xs text-[#99aab5] uppercase font-bold tracking-wider">
-                  Spesialisasi Teknis
-                </span>
-                <ul className="flex flex-col gap-2 text-sm text-[#babcd9]">
-                  <li className="flex items-center gap-2.5">
-                    <CheckCircle2 className="w-4 h-4 text-[#5865f2] shrink-0" />
-                    <span>Pembuatan arsitektur sistem informasi e-commerce & katalog</span>
-                  </li>
-                  <li className="flex items-center gap-2.5">
-                    <CheckCircle2 className="w-4 h-4 text-[#5865f2] shrink-0" />
-                    <span>Integrasi database relasional MySQL & query performan</span>
-                  </li>
-                  <li className="flex items-center gap-2.5">
-                    <CheckCircle2 className="w-4 h-4 text-[#5865f2] shrink-0" />
-                    <span>Antarmuka responsif ramah pengguna mobile & desktop</span>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Verified Education Footnote */}
-              <div className="mt-2 pt-4 border-t border-[#50555f]/30 flex items-center justify-between text-xs text-[#99aab5]">
-                <span>Pendidikan Terverifikasi</span>
-                <span className="text-white font-medium">S1 Sistem Informasi</span>
+              {/* Profile Meta Info Bar */}
+              <div className="flex items-center justify-between pt-1 px-1">
+                <div>
+                  <h2 className="text-white font-bold text-base font-display tracking-tight">
+                    {profile.name}
+                  </h2>
+                  <p className="text-xs text-[#babcd9]">
+                    S1 Sistem Informasi • Web Developer
+                  </p>
+                </div>
+                <div className="flex items-center gap-1.5 text-xs text-[#babcd9] bg-[#2c2f33] px-2.5 py-1 rounded-lg border border-[#50555f]/30">
+                  <GraduationCap className="w-3.5 h-3.5 text-[#5865f2]" />
+                  <span>Univ. Gunadarma</span>
+                </div>
               </div>
             </div>
           </div>

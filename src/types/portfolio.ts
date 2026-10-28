@@ -7,6 +7,7 @@ export interface Profile {
   email: string;
   ctaTextPrimary: string;
   ctaTextSecondary: string;
+  avatarUrl?: string;
 }
 
 export interface Education {
