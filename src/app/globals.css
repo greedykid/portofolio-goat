@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cosmic: #0e0f2d;
+  --color-surface: #23272a;
+  --color-surface-elevated: #2c2f33;
+  --color-blurple: #5865f2;
+  --color-blurple-dark: #3442d9;
+  --color-blurple-hover: #8891f2;
+  --color-snow: #ffffff;
+  --color-fog: #babcd9;
+  --color-dim-grey: #50555f;
+  --color-greyple: #99aab5;
+  --color-spring-green: #57f287;
+  --color-cerulean: #00b0f4;
+  --color-ember: #fda220;
+
+  --radius-btn: 12px;
+  --radius-card: 16px;
+  --radius-panel: 24px;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background-color: #0e0f2d;
+  color: #babcd9;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Custom utility for Discord style heavy display headlines */
+.font-display {
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0e0f2d;
+}
+::-webkit-scrollbar-thumb {
+  background: #2c2f33;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #50555f;
+}
