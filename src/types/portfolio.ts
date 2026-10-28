@@ -38,8 +38,15 @@ export interface Project {
 export interface Certificate {
   id: string;
   name: string;
+  englishTitle?: string;
   issuer: string;
   year?: string;
+  issueDate?: string;
+  period?: string;
+  credentialId?: string;
+  fileUrl?: string;
+  category?: string;
+  skills?: string[];
   credentialUrl?: string;
 }
 
